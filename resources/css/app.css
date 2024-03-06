@@ -1,0 +1,10 @@
+/* Reducir el tamaño de las flechas de navegación de la paginación */
+.svg {
+    font-size: 0.875rem; /* Tamaño de fuente más pequeño */
+    line-height: 1.5; /* Espaciado entre líneas */
+}
+
+/* Estilos específicos para las flechas de navegación */
+.svg {
+    font-size: 1rem; /* Tamaño de fuente para las flechas */
+}
