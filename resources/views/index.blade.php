@@ -10,6 +10,7 @@
                 <thead>
                     <tr>
                         <th class="col">Nombre</th>
+                        <th class="col">Tutor</th>
                         <th class="col">Categoria</th>
                     </tr>
                 </thead>
@@ -20,6 +21,14 @@
                                 <p id="{{ $course->id }}">
                                     <a class="text-decoration-none text-dark"
                                         href="courses/{{ $course->id }}">{{ $course->name }}</a>
+                                </p>
+                            @endforeach
+                        </td>
+                        <td>
+                            @foreach ($courses as $course)
+                                <p id="{{ $course->id }}">
+                                    <a class="text-decoration-none text-dark"
+                                        href="courses/{{ $course->id }}">{{ $course->tutor }}</a>
                                 </p>
                             @endforeach
                         </td>

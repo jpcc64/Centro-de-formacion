@@ -1,7 +1,7 @@
 @include('components.nav')
-<div class="container">
-    <div class="card">
-        <div class="card-body">
+<div class="container d-flex justify-content-center">
+    <div class="card col-12 col-md-4">
+        <div class="card-body p-5 bg-light rounded-3">
             <form method="POST" action="{{ route('inicia-sesion') }}">
                     @csrf
                 <div class="mb-3">
