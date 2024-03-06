@@ -11,34 +11,24 @@ class LoginContronller extends Controller
 {
     public function login(Request $request)
     {
-     // Validación de datos de entrada
-    $request->validate([
-        'email' => 'required|email',
-        'password' => 'required',
-    ]);
+        // Validación de datos de entrada
 
-    // Intenta autenticar al usuario
-    $credentials = $request->only('email', 'password');
-    $remember = $request->has('remember');
-  
-    if (Auth::attempt($credentials, $remember)) {
-        // Autenticación exitosa, redirigir al usuario a la ruta deseada
-        return redirect('privada');
-    } else {
-        // Autenticación fallida, redirigir de nuevo al formulario de inicio de sesión con un mensaje de error
-       // return redirect()->back()->withInput()->withErrors(['email' => 'Estas credenciales no coinciden con nuestros registros.']);
-        return redirect('/');
-    }
+        // Intenta autenticar al usuario
+        $credentials = $request->only('email', 'password');
+        $remember = $request->has('remember');
+
+        if (Auth::attempt($credentials, $remember)) {
+            // Autenticación exitosa, redirigir al usuario a la ruta deseada
+            return redirect('privada');
+        } else {
+            // Autenticación fallida, redirigir de nuevo al formulario de inicio de sesión con un mensaje de error
+            return redirect()->back();
+        }
     }
 
     public function registro(Request $request)
     {
-         //Validar los datos del formulario
-          $request->validate([
-              'nombre' => 'required|string|max:255',
-              'email' => 'required|email|unique:users,email',
-               'password' => 'required|string|min:8',
-          ]);
+        //Validar los datos del formulario
 
         // Crear un nuevo usuario en la tabla users
         $usuario = new User();
