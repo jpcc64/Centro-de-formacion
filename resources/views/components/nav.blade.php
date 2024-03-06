@@ -32,10 +32,7 @@
                             <a class="nav-link active" aria-current="page" href="/">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="/cursos">Cursos</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" href="#">Contacto</a>
+                            <a class="nav-link active" href="{{route('privada')}}">Cursos</a>
                         </li>
                     </ul>
 
@@ -47,7 +44,7 @@
                 </form>
                 <!-- Botón de iniciar sesión y botón de registrarse -->
                 <div class="d-flex">
-                    <a class="btn btn-outline-light m-2" href="{{route('login.index')}}">Iniciar Sesion</a>
+                    <a class="btn btn-outline-light m-2" href="{{route('login')}}">Iniciar Sesion</a>
                     <a class="btn btn-outline-light m-2" href="{{'registro'}}">Registrarse</a>
                 </div>
             </div>

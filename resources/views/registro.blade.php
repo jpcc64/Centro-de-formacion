@@ -3,7 +3,7 @@
 <div class="container">
     <div class="card">
         <div class="card-body p-5 bg-light rounded-3">
-            <form method="POST" action="{{ route('registro') }}">
+            <form method="POST" action="{{ route('validar') }}">
                 @csrf <!-- Directiva de Blade para agregar el token CSRF -->
 
                 <div class="mb-3">

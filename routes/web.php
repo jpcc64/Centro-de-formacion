@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\IndexController;
+use App\Http\Controllers\LoginContronller;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
@@ -22,7 +23,10 @@ Route::get('/courses/{id}',[CourseController::class,'findCourse']);
 
 Route::get('/search',[IndexController::class,'search']);
 
-Route::resource('/login', UserController::class);
+Route::view('/login', 'login')->name('login');
+Route::view('/registro', 'registro')->name('registro');
+Route::view('/privada', 'profile')->middleware('auth')->name('privada');
 
-Route::get('/registro', [RegisterController::class,'index']);
-Route::post('/registro', [RegisterController::class,'registrar'])->name('registro');
+Route::post('/validate', [LoginContronller::class,'registro'])->name('validar');
+Route::post('/inicia-sesion', [LoginContronller::class,'login'])->name('inicia-sesion');
+Route::get('/logout', [LoginContronller::class,'logout'])->name('logout');
