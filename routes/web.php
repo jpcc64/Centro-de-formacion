@@ -25,8 +25,11 @@ Route::get('/search',[IndexController::class,'search']);
 
 Route::view('/login', 'login')->name('login');
 Route::view('/registro', 'registro')->name('registro');
-Route::view('/privada', 'profile')->middleware('auth')->name('privada');
+Route::get('/privada', [UserController::class,'showProfile'])->middleware('auth')->name('privada');
 
 Route::post('/validate', [LoginContronller::class,'registro'])->name('validar');
 Route::post('/inicia-sesion', [LoginContronller::class,'login'])->name('inicia-sesion');
 Route::get('/logout', [LoginContronller::class,'logout'])->name('logout');
+
+Route::post('/favoritecourse', [CourseController::class, 'createFavouriteCourse'])->name('favoritos');
+Route::delete('/borrarFav/{id}', [CourseController::class, 'deleteFavouriteCourse'])->name('borrar');

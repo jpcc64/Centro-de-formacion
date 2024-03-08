@@ -1,28 +1,36 @@
-@include('components.nav')
+@include('layouts.nav')
+<div class="flex justify-center">
+    <div class="bg-white rounded-lg shadow-lg p-5 w-full md:w-80">
+        <form method="POST" action="{{ route('validar') }}">
+            @csrf <!-- Directiva de Blade para agregar el token CSRF -->
 
-<div class="container d-flex justify-content-center">
-    <div class="card col-12 col-md-4">
-        <div class="card-body p-5 bg-light rounded-3">
-            <form method="POST" action="{{ route('validar') }}">
-                @csrf <!-- Directiva de Blade para agregar el token CSRF -->
-
-                <div class="mb-3">
-                    <label for="nombre" class="form-label">Nombre</label>
-                    <input type="text" class="form-control" id="nombre" name="nombre" required>
-                </div>
-                <div class="mb-3">
-                    <label for="email" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="email" name="email" required>
-                </div>
-                <div class="mb-3">
-                    <label for="password" class="form-label">Contraseña</label>
-                    <input type="password" class="form-control" id="password" name="password" required>
-                </div>
-                <button type="submit" class="btn btn-primary">Registrarse</button>
-            </form>
-        </div>
+            <div class="mb-4">
+                <label for="nombre" class="block text-sm font-medium text-gray-700">Nombre</label>
+                <input type="text" id="nombre" name="nombre" class="mt-1 p-2 w-full border rounded-md" required>
+                @error('name')
+                    <p class="text-red-500">{{ $message }}</p>
+                @enderror
+            </div>
+            <div class="mb-4">
+                <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+                <input type="email" id="email" name="email" class="mt-1 p-2 w-full border rounded-md" required>
+                @error('email')
+                    <p class="text-red-500">{{ $message }}</p>
+                @enderror
+            </div>
+            <div class="mb-4">
+                <label for="password" class="block text-sm font-medium text-gray-700">Contraseña</label>
+                <input type="password" id="password" name="password" class="mt-1 p-2 w-full border rounded-md"
+                    required>
+                @error('password')
+                    <p class="text-red-500">{{ $message }}</p>
+                @enderror
+            </div>
+            <button type="submit"
+                class="bg-sky-800 hover:bg-sky-800-dark text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Registrarse</button>
+        </form>
     </div>
 </div>
 
 
-@include('components.footer')
+@include('layouts.footer')
